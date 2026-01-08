@@ -1,0 +1,12 @@
+# AI Wiki Quiz Generator
+
+## Tech Stack
+- FastAPI, PostgreSQL, LangChain, Gemini API, BeautifulSoup, HTML
+
+## Features
+- Generate quizzes from Wikipedia
+- View quiz history
+- JSON API output
+
+## How to Run
+1. Activate virtual environment:
