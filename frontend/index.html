@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Wiki Quiz</title>
+</head>
+<body>
+
+<h2>AI Wiki Quiz Generator</h2>
+
+<input type="text" id="urlInput" placeholder="Paste Wikipedia URL" size="60">
+<br><br>
+<button onclick="generateQuiz()">Generate Quiz</button>
+
+<pre id="result"></pre>
+
+<script>
+async function generateQuiz() {
+    const url = document.getElementById("urlInput").value;
+
+    if (!url) {
+        alert("Please paste a Wikipedia URL");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            "http://127.0.0.1:8000/generate-quiz?url=" + encodeURIComponent(url)
+        );
+
+        const data = await response.json();
+        document.getElementById("result").textContent =
+            JSON.stringify(data, null, 2);
+
+    } catch (error) {
+        document.getElementById("result").textContent = "Error: " + error;
+    }
+}
+</script>
+
+</body>
+</html>
